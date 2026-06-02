@@ -2,33 +2,12 @@
 
 :root {
   font-family: Nunito, Roboto, sans-serif;
-  width: 1120px;
-  margin: 0 auto;
+  margin: 0 40px;
 }
 
 .drinks-menu {
   display: grid;
-  grid: auto-flow / 1fr 1fr 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
   padding: 0;
-  margin: 0;
-
-  li {
-    list-style: none;
-    p {
-      text-wrap: wrap;
-    }
-  }
-}
-
-@media screen and (width < 1120px) {
-  .drinks-menu {
-    grid: auto-flow / 1fr 1fr;
-  }
-}
-
-@media screen and (width < 780px) {
-  .drinks-menu {
-    grid: auto-flow / 1fr;
-  }
 }
