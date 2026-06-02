@@ -10,7 +10,17 @@ function App() {
   const [items, setCheckoutItems] = useState<Drink[]>([])
 
   const addToCheckout = (drink: Drink) => {
-    setCheckoutItems([...items, drink])
+
+    const drinkToUpdateIndex = items.findIndex(item => item.id === drink.id);
+
+    if(drinkToUpdateIndex > -1) {
+      const quantity = items[drinkToUpdateIndex].quantity + 1;
+      items[drinkToUpdateIndex].quantity = quantity
+      setCheckoutItems([...items])
+    } else {
+      drink.quantity = 1;
+      setCheckoutItems([...items, drink])
+    }
   }
 
   return (

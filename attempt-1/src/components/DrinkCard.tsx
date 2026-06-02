@@ -1,4 +1,4 @@
-import type { Drink } from "../types/Drink"
+import { type Drink } from "../types/Drink"
 
 type DrinkCardProps = {
     drink: Drink,

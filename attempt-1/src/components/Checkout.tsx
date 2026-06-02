@@ -7,15 +7,14 @@ type CheckoutProps = {
 function Checkout({items}: CheckoutProps) {
 
     const DELIVERY_FEE = items.length > 0 ? 2 : 0;
-    const totalCost = items.reduce((sum, item) => sum + item.price, DELIVERY_FEE);
+    const totalCost = items.reduce((sum, item) => sum + (item.price * item.quantity), DELIVERY_FEE);
 
     return (
         <>
             <div>
                 <ul>
-
                     {items.map(item => (
-                        <li key={item.id}>{item.name}</li>
+                        <li key={item.id}>{item.name} x { item.quantity }</li>
                     ))}
                 </ul>
                 Total £{totalCost.toFixed(2)} (inc. £2.00 Delivery)

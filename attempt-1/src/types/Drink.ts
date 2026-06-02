@@ -3,5 +3,6 @@ export type Drink = {
   name: string,
   description: string,
   price: number,
-  imageUrl: string
+  imageUrl: string,
+  quantity: number,
 }

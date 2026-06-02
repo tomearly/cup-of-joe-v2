@@ -11,11 +11,11 @@ function Menu({ addToCheckout }: MenuProps) {
         <>
             <h1>Menu</h1>
 
-            <div className="drinks-menu">
+            <ul className="drinks-menu">
                 { drinks.map((drink) => (
-                   <DrinkCard drink={drink} key={drink.id} addToCheckout={() => addToCheckout(drink)} />
+                   <DrinkCard drink={drink} key={drink.id} addToCheckout={addToCheckout} />
                 )) }
-            </div>
+            </ul>
         </>
     )
 }
