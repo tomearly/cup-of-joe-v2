@@ -1,26 +1,23 @@
 import { useState } from "react";
-import type { Drink } from "./types/Drink"
-import Checkout from "./components/Checkout"
 import Menu from "./components/Menu"
+import Checkout from "./components/Checkout"
+import { type Drink } from "./types/Drink"
 
 import './App.css'
 
 function App() {
 
-  const [checkout, setCheckout] = useState<Drink[]>();
+  const [items, setCheckoutItems] = useState<Drink[]>([])
 
   const addToCheckout = (drink: Drink) => {
-    console.log('Adding drink ', drink);
+    setCheckoutItems([...items, drink])
   }
 
   return (
-
-
-
     <>
       <div className="App">
         <h1>Coffee Shop</h1>
-        {/* <Checkout checkout={checkout} setCheckout={setCheckout}/> */}
+        <Checkout items={items} />
         <Menu addToCheckout={addToCheckout} />
       </div>
     </>
