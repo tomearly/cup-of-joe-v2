@@ -1,5 +1,5 @@
-import { type Drink } from "./Drink";
+import { type CheckoutItem } from "./CheckoutItem";
 
 export type Checkout = {
-    items: Drink[],
+    items: CheckoutItem[],
 }

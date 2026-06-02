@@ -1,25 +1,37 @@
 import { useState } from "react";
 import Menu from "./components/Menu"
 import Checkout from "./components/Checkout"
-import { type Drink } from "./types/Drink"
+import { type CheckoutItem } from "./types/CheckoutItem"
+import { type Product } from "./types/Product"
 
 import './App.css'
 
 function App() {
 
-  const [items, setCheckoutItems] = useState<Drink[]>([])
+  const [items, setCheckoutItems] = useState<CheckoutItem[]>([])
+  
+  const addToCheckout = (product: Product) => {
 
-  const addToCheckout = (drink: Drink) => {
+    const itemInCheckoutIndex = items.findIndex(p => p.productId === product.id);
 
-    const drinkToUpdateIndex = items.findIndex(item => item.id === drink.id);
-
-    if(drinkToUpdateIndex > -1) {
-      const quantity = items[drinkToUpdateIndex].quantity + 1;
-      items[drinkToUpdateIndex].quantity = quantity
-      setCheckoutItems([...items])
+    if(itemInCheckoutIndex > -1) {
+      setCheckoutItems(prev =>
+        prev.map(item =>
+          item.productId === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      )
     } else {
-      drink.quantity = 1;
-      setCheckoutItems([...items, drink])
+
+      const checkoutItem = {
+        productId: product.id,
+        quantity: 1,
+        price: product.price,
+        name: product.name
+      }
+
+      setCheckoutItems(prev => [...prev, checkoutItem])
     }
   }
 

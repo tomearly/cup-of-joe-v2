@@ -1,7 +1,7 @@
-import { type Drink } from "./Drink";
+import { type Product } from "./Product";
 
 export type Menu = {
     id: number,
     name: string,
-    drinks: Drink[]
+    drinks: Product[]
 }

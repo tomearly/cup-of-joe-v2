@@ -1,9 +1,11 @@
-import drinks from '../data/drinks.json';
-import DrinkCard from './DrinkCard';
-import { type Drink } from '../types/Drink'
+import productsData from '../data/products.json';
+import ProductCard from './ProductCard';
+import { type Product } from '../types/Product'
+
+const products = productsData as Product[]
 
 type MenuProps = {
-    addToCheckout: (drink: Drink) => void
+    addToCheckout: (product: Product) => void
 }
 
 function Menu({ addToCheckout }: MenuProps) {
@@ -12,8 +14,8 @@ function Menu({ addToCheckout }: MenuProps) {
             <h1>Menu</h1>
 
             <ul className="drinks-menu">
-                { drinks.map((drink) => (
-                   <DrinkCard drink={drink} key={drink.id} addToCheckout={addToCheckout} />
+                { products.map((product) => (
+                   <ProductCard product={product} key={product.id} addToCheckout={addToCheckout} />
                 )) }
             </ul>
         </>

@@ -1,7 +1,7 @@
-import type { Drink } from "../types/Drink"
+import type { CheckoutItem } from "../types/CheckoutItem"
 
 type CheckoutProps = {
-    items: Drink[];
+    items: CheckoutItem[];
 }
 
 function Checkout({items}: CheckoutProps) {
@@ -14,10 +14,10 @@ function Checkout({items}: CheckoutProps) {
             <div>
                 <ul>
                     {items.map(item => (
-                        <li key={item.id}>{item.name} x { item.quantity }</li>
+                        <li key={item.productId}>{item.name} x {item.quantity}</li>
                     ))}
                 </ul>
-                Total £{totalCost.toFixed(2)} (inc. £2.00 Delivery)
+                Total: £{ totalCost.toFixed(2) }
             </div>
         </>
     )
