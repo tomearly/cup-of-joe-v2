@@ -9,9 +9,6 @@ type ProductCardProps = {
 }
 
 function ProductCard({ product, addToCheckout }: ProductCardProps) {
-
-   
-
     return (
         <div>
             <h2>{product.name} <ProductIcon product={product} /></h2>

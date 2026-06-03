@@ -20,7 +20,7 @@ function Menu({ addToCheckout }: MenuProps) {
             { loading && <Loader />}
             { error && <AlertTriangleIcon />}
 
-            <ul className="drinks-menu">
+            <div className="drinks-menu">
                 {products.length > 0 && products.map((product) => (
                     <ProductCard
                         product={product}
@@ -28,7 +28,7 @@ function Menu({ addToCheckout }: MenuProps) {
                         addToCheckout={addToCheckout}
                     />
                 ))}
-            </ul>
+            </div>
         </>
     )
 }
