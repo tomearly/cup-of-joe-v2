@@ -1,1 +1,4 @@
-export type ProductCategory = "food" | "drink";
+import { type FoodProduct } from "./FoodProduct"
+import { type DrinkProduct } from "./DrinkProduct"
+
+export type ProductCategory = FoodProduct | DrinkProduct;

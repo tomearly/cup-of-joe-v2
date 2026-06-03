@@ -1,11 +1,12 @@
 import productsData from '../data/products.json';
 import ProductCard from './ProductCard';
-import { type Product } from '../types/Product'
+import { type FoodProduct } from '../types/FoodProduct'
+import { type DrinkProduct } from '../types/DrinkProduct'
 
-const products = productsData as Product[]
+const products = productsData as []
 
 type MenuProps = {
-    addToCheckout: (product: Product) => void
+    addToCheckout: (product: FoodProduct|DrinkProduct) => void
 }
 
 function Menu({ addToCheckout }: MenuProps) {
