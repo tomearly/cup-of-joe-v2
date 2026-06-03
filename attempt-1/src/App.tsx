@@ -17,8 +17,8 @@ function App() {
 
   return (
     <>
-      <div className="App">
-        <h1>Coffee Shop</h1>
+      <div className="coffee-shop">
+        <h1 className="text-4xl font-bold">Coffee Shop</h1>
         <Checkout items={items} />
         <Menu addToCheckout={addToCheckout} />
       </div>

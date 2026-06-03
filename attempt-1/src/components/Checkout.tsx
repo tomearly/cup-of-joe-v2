@@ -11,8 +11,8 @@ function Checkout({items}: CheckoutProps) {
 
     return (
         <>
-            <div>
-                <ul>
+            <div className="pt-4">
+                <ul className="mb-2">
                     {items.map(item => (
                         <li key={item.productId}>{item.name} x {item.quantity}</li>
                     ))}
