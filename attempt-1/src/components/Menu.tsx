@@ -17,9 +17,10 @@ function Menu({ addToCheckout }: MenuProps) {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch('/products')
+                const res = await fetch('/api/products')
+                if (!res.ok) throw new Error(`HTTP ${res.status}`)
                 const data = await res.json()
-                setProducts(data)
+                setProducts(Array.isArray(data) ? data : data?.products ?? [])
             } catch (err) {
                 setError('Failed to load products');
             } finally {
