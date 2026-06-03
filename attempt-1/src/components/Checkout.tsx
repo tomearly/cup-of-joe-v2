@@ -17,7 +17,7 @@ function Checkout({items}: CheckoutProps) {
                         <li key={item.productId}>{item.name} x {item.quantity}</li>
                     ))}
                 </ul>
-                Total: £{ totalCost.toFixed(2) }
+                Total: £{ totalCost.toFixed(2) } { totalCost > 0 && (<>inc. delivery</>) }
             </div>
         </>
     )
