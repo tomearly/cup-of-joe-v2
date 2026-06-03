@@ -9,7 +9,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server --watch './api/products.json' --port 3001"
+    "server": "json-server --watch './api/db.json' --port 3001"
   },
   "dependencies": {
     "@vercel/node": "^5.8.9",
