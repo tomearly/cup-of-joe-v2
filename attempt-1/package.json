@@ -2,11 +2,14 @@
   "name": "attempt-1",
   "private": true,
   "version": "0.0.0",
+  "engines": {
+    "node": ">=18"
+  },
   "type": "module",
   "packageManager": "pnpm@9.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && npx vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "json-server --watch './api/db.json' --port 3001"
