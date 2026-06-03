@@ -1,4 +1,1 @@
-import { type FoodProduct } from "./FoodProduct"
-import { type DrinkProduct } from "./DrinkProduct"
-
-export type ProductCategory = FoodProduct | DrinkProduct;
+export type ProductCategory = "food" | "drink";
