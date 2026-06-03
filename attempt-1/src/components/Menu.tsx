@@ -15,7 +15,7 @@ function Menu({ addToCheckout }: MenuProps) {
 
     return (
         <>
-            <h1>Menu</h1>
+            <h1 className="text-3xl font-bold mt-4 mb-8">Menu</h1>
 
             { loading && <Loader />}
             { error && <AlertTriangleIcon />}

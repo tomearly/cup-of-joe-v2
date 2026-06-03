@@ -11,7 +11,7 @@ type ProductCardProps = {
 function ProductCard({ product, addToCheckout }: ProductCardProps) {
     return (
         <div>
-            <h2>{product.name} <ProductIcon product={product} /></h2>
+            <h2 className="text-xl font-bold flex mb-2"><span className="mr-2">{product.name}</span> <ProductIcon product={product} /></h2>
             <p>{product.description}</p>
             <p>£{product.price.toFixed(2)}</p>
             <img src={product.imageUrl} alt={product.name} width="200" />
