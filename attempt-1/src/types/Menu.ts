@@ -1,4 +1,4 @@
-import { type Product } from "./ProductBase";
+import { type Product } from "./Product";
 
 export type Menu = {
     id: number,

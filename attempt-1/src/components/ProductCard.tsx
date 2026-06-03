@@ -1,7 +1,7 @@
 import { ProductIcon } from "../components/ProductIcon";
 import { type DrinkProduct } from "../types/DrinkProduct"
 import { type FoodProduct } from "../types/FoodProduct"
-import { type Product } from "../types/ProductBase"
+import { type Product } from "../types/Product"
 
 type ProductCardProps = {
     product: DrinkProduct | FoodProduct,

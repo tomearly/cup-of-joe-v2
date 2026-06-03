@@ -1,4 +1,4 @@
-import { type Product } from "../types/ProductBase"
+import { type Product } from "../types/Product"
 import { Coffee, Snowflake, Microwave, Sandwich } from 'lucide-react';
 
 type ProductIconProps = {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Menu from "./components/Menu"
 import Checkout from "./components/Checkout"
 import { type CheckoutItem } from "./types/CheckoutItem"
-import { type Product } from "./types/ProductBase"
+import { type Product } from "./types/Product"
 
 import './App.css'
 
