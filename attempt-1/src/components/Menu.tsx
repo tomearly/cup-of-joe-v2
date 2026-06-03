@@ -1,37 +1,18 @@
-import { useEffect, useState } from "react";
 import ProductCard from './ProductCard';
+import { useFetch } from '../hooks/useFetch'
 import { type Product } from '../types/Product'
-
-// const products = productsData as Product[]
 
 type MenuProps = {
     addToCheckout: (product: Product) => void
 }
 
+type ApiResponse<T> = { products: T }
+
 function Menu({ addToCheckout }: MenuProps) {
 
-    const [products, setProducts] = useState<Product[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const res = await fetch('/api/products')
-                if (!res.ok) throw new Error(`HTTP ${res.status}`)
-                const data = await res.json()
-                setProducts(Array.isArray(data) ? data : data?.products ?? [])
-            } catch (err) {
-                setError('Failed to load products');
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchProducts();
-    }, []);
-
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
+    const { data } = useFetch<ApiResponse<Product[]>>('/api/products')
+    const products = data?.products ?? []
 
     return (
         <>
