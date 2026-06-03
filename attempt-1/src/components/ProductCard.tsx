@@ -15,6 +15,7 @@ function ProductCard({ product, addToCheckout }: ProductCardProps) {
             <p>{product.description}</p>
             <p>£{product.price.toFixed(2)}</p>
             <img src={product.imageUrl} alt={product.name} width="200" />
+            { 'reheatingInstructions' in product && product.reheatingInstructions && <p><em>{product.reheatingInstructions}</em></p>}
             <p><button onClick={() => addToCheckout(product)}>Add to Cart</button></p>
         </div>
     )
