@@ -1,6 +1,6 @@
-import { type ProductCategory } from "../types/ProductCategory"
+import { type ProductCategory } from "./ProductCategory"
 
-export interface Product {
+export interface ProductBase {
   id: string;
   name: string;
   description: string;

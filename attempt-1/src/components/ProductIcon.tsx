@@ -1,9 +1,8 @@
-import { type DrinkProduct } from "../types/DrinkProduct"
-import { type FoodProduct } from "../types/FoodProduct"
+import { type Product } from "../types/ProductBase"
 import { Coffee, Snowflake, Microwave, Sandwich } from 'lucide-react';
 
 type ProductIconProps = {
-  product: DrinkProduct | FoodProduct;
+  product: Product;
 }
 
 export function ProductIcon({product}: ProductIconProps) {

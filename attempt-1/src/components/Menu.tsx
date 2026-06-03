@@ -1,6 +1,6 @@
 import productsData from '../data/products.json';
 import ProductCard from './ProductCard';
-import { type Product } from '../types/Product'
+import { type Product } from '../types/ProductBase'
 
 const products = productsData as Product[]
 

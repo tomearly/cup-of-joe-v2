@@ -1,6 +1,6 @@
-import { type Product } from "./Product"
+import { type ProductBase } from "./ProductBase"
 
-export type FoodProduct = Product & {
+export type FoodProduct = ProductBase & {
     category: "food";
     reheatingInstructions?: string
 }

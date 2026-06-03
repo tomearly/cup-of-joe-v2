@@ -1,6 +1,6 @@
-import { type Product } from "./Product"
+import { type ProductBase } from "./ProductBase"
 
-export type DrinkProduct = Product & {
+export type DrinkProduct = ProductBase & {
     category: "drink";
     hot: boolean;
 }
