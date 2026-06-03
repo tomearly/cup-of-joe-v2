@@ -1,3 +1,4 @@
+import path from 'node:path'
 import { defineConfig } from 'vite'
 import react, { reactCompilerPreset } from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
@@ -11,6 +12,11 @@ const dbFile = join(__dirname, 'api/db.json')
 
 // https://vite.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: [
+      { find: '@', replacement: path.resolve(__dirname, 'src') }
+    ]
+  },
   plugins: [
     tailwindcss(),
     react(),

@@ -2,6 +2,7 @@ import { ProductIcon } from "../components/ProductIcon";
 import { type DrinkProduct } from "../types/DrinkProduct"
 import { type FoodProduct } from "../types/FoodProduct"
 import { type Product } from "../types/Product"
+import { Button } from "@/components/ui/button";
 
 type ProductCardProps = {
     product: DrinkProduct | FoodProduct,
@@ -16,7 +17,7 @@ function ProductCard({ product, addToCheckout }: ProductCardProps) {
             <p>£{product.price.toFixed(2)}</p>
             <img src={product.imageUrl} alt={product.name} width="200" />
             { 'reheatingInstructions' in product && product.reheatingInstructions && <p><em>{product.reheatingInstructions}</em></p>}
-            <p><button onClick={() => addToCheckout(product)}>Add to Cart</button></p>
+            <p><Button onClick={() => addToCheckout(product)}>Add to Cart</Button></p>
         </div>
     )
 }
