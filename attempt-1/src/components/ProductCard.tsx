@@ -1,18 +1,18 @@
 import { Link } from "react-router";
-import { ProductIcon } from "../components/ProductIcon";
-import { type DrinkProduct } from "../types/DrinkProduct"
-import { type FoodProduct } from "../types/FoodProduct"
-import { type Product } from "../types/Product"
+import { ProductIcon } from "@/components/ProductIcon";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent, CardFooter } from "@/components/ui/card"
 import { ProductImage } from "./ProductImage"
+import { type DrinkProduct } from "@/types/DrinkProduct"
+import { type FoodProduct } from "@/types/FoodProduct"
+import { type Product } from "@/types/Product"
 
 type ProductCardProps = {
     product: DrinkProduct | FoodProduct,
     addToCheckout: (product: Product) => void
 }
 
-function ProductCard({ product, addToCheckout }: ProductCardProps) {
+export function ProductCard({ product, addToCheckout }: ProductCardProps) {
     return (
         <Card>
             <CardHeader>
@@ -32,5 +32,3 @@ function ProductCard({ product, addToCheckout }: ProductCardProps) {
         </Card>
     )
 }
-
-export default ProductCard;

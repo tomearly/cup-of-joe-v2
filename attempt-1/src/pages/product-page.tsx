@@ -7,7 +7,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent }
 import { ProductImage } from "@/components/ProductImage"
 import { ALLERGEN_IMAGES } from "@/types/Allergens"
 
-export default function ProductPage() {
+export function ProductPage() {
     const { id } = useParams<{ id: string }>();
 
     const { data, loading, error } = useFetch<Product>(`/api/products/${id}`);

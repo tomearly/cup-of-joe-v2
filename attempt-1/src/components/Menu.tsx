@@ -1,7 +1,7 @@
-import ProductCard from './ProductCard';
-import { useFetch } from '../hooks/useFetch'
-import { type Product } from '../types/Product'
+import { ProductCard } from './ProductCard'
 import { AlertTriangleIcon, Loader } from "lucide-react"
+import { type Product } from '@/types/Product'
+import { useFetch } from '@/hooks/useFetch'
 
 type MenuProps = {
     addToCheckout: (product: Product) => void
@@ -9,7 +9,7 @@ type MenuProps = {
 
 type ApiResponse<T> = { products: T }
 
-function Menu({ addToCheckout }: MenuProps) {
+export function Menu({ addToCheckout }: MenuProps) {
     const { data, loading, error } = useFetch<ApiResponse<Product[]>>('/api/products')
     const products = data?.products ?? []
 
@@ -32,5 +32,3 @@ function Menu({ addToCheckout }: MenuProps) {
         </>
     )
 }
-
-export default Menu;

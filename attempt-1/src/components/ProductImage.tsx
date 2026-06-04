@@ -5,7 +5,7 @@ type ProductImageProps = {
     alt: string;
 }
 
-export function ProductImage({src, alt}: ProductImageProps) {
+export function ProductImage({ src, alt }: ProductImageProps) {
     return (
         <div className="relative w-full overflow-hidden rounded-lg">
             <AspectRatio ratio={16 / 9} className="rounded-lg bg-muted">

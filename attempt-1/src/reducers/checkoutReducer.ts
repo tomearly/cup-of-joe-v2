@@ -1,10 +1,10 @@
-import { type CheckoutItem } from "../types/CheckoutItem"
+import { type CartItem } from "../types/CartItem"
 import { type CheckoutAction } from "../types/CheckoutAction"
 
 export function checkoutReducer(
-  state: CheckoutItem[],
+  state: CartItem[],
   action: CheckoutAction
-): CheckoutItem[] {
+): CartItem[] {
   switch (action.type) {
     case "add": {
       const product = action.product
