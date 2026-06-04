@@ -1,17 +1,17 @@
-import celeryImg from "@/assets/allergens/celery.png";
-import eggImg from "@/assets/allergens/egg.png";
-import fishImg from "@/assets/allergens/fish.png";
-import lupinImg from "@/assets/allergens/lupin.png";
-import milkImg from "@/assets/allergens/milk.png";
-import mustardImg from "@/assets/allergens/mustard.png";
-import peanutsImg from "@/assets/allergens/peanut.png";
-import treeNutsImg from "@/assets/allergens/treenuts.png";
-import sesameImg from "@/assets/allergens/sesame.png";
-import crustaceansImg from "@/assets/allergens/crustaceans.png";
-import molluscsImg from "@/assets/allergens/molluscs.png";
-import soyaImg from "@/assets/allergens/soybean.png";
-import sulphitesImg from "@/assets/allergens/so2.png";
-import glutenImg from "@/assets/allergens/gluten.png";
+const celeryImg = new URL("../assets/allergens/celery.png", import.meta.url).href;
+const eggImg = new URL("../assets/allergens/egg.png", import.meta.url).href;
+const fishImg = new URL("../assets/allergens/fish.png", import.meta.url).href;
+const lupinImg = new URL("../assets/allergens/lupin.png", import.meta.url).href;
+const milkImg = new URL("../assets/allergens/milk.png", import.meta.url).href;
+const mustardImg = new URL("../assets/allergens/mustard.png", import.meta.url).href;
+const peanutsImg = new URL("../assets/allergens/peanut.png", import.meta.url).href;
+const treeNutsImg = new URL("../assets/allergens/treenuts.png", import.meta.url).href;
+const sesameImg = new URL("../assets/allergens/sesame.png", import.meta.url).href;
+const crustaceansImg = new URL("../assets/allergens/crustaceans.png", import.meta.url).href;
+const molluscsImg = new URL("../assets/allergens/molluscs.png", import.meta.url).href;
+const soyaImg = new URL("../assets/allergens/soybean.png", import.meta.url).href;
+const sulphitesImg = new URL("../assets/allergens/so2.png", import.meta.url).href;
+const glutenImg = new URL("../assets/allergens/gluten.png", import.meta.url).href;
 
 export type Allergen =
   | "celery"
