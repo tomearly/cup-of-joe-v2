@@ -3,6 +3,5 @@
   "build": {
     "command": "pnpm run build",
     "outputDirectory": "dist"
-  },
-  "nodeVersion": "18.x"
+  }
 }
