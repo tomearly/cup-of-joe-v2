@@ -17,6 +17,11 @@ export default defineConfig({
       { find: '@', replacement: path.resolve(__dirname, 'src') }
     ]
   },
+  build: {
+    rolldownOptions: {
+      external: ['tslib']
+    }
+  },
   plugins: [
     tailwindcss(),
     react(),
