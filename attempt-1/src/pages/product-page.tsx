@@ -15,33 +15,33 @@ export default function ProductPage() {
     const allergens = data?.allergens || [];
 
     const allergenIcons = allergens.map((allergen) =>
-        <img key={allergen} className="allergen-icon" src={ALLERGEN_IMAGES[allergen]} />
+        <img alt={allergen} key={allergen} className="allergen-icon" src={ALLERGEN_IMAGES[allergen]} />
     );
 
     return (
         <div className="mt-8">
-            <Link to="/" className="mb-8">
+            <Link to="/" className="mb-8 flex">
                 <ArrowLeft></ArrowLeft>Menu
             </Link>
             {loading && <Loader />}
             {error && <AlertTriangleIcon />}
             {data &&
- <Card>
-            <CardHeader>
-                <CardTitle className="h-[50px] overflow-hidden flex">{data.name}</CardTitle>
-                <CardDescription className="h-[100px]">{data.description}
-                { 'reheatingInstructions' in data && data.reheatingInstructions && <p className="mt-2"><em>{data.reheatingInstructions}</em></p>}
-                </CardDescription>
-                <CardAction className="h-[20%] flex">
-                    
-                    { allergenIcons }
-                     
-                </CardAction>
-            </CardHeader>
-            <CardContent>
-                <ProductImage src={data.imageUrl} alt={data.name} />
-            </CardContent>
-        </Card>
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="h-[50px] overflow-hidden flex">{data.name}</CardTitle>
+                        <CardDescription className="h-[100px]">{data.description}
+                            {'reheatingInstructions' in data && data.reheatingInstructions && <p className="mt-2"><em>{data.reheatingInstructions}</em></p>}
+                        </CardDescription>
+                        <CardAction className="h-[20%] flex">
+
+                            {allergenIcons}
+
+                        </CardAction>
+                    </CardHeader>
+                    <CardContent>
+                        <ProductImage src={data.imageUrl} alt={data.name} />
+                    </CardContent>
+                </Card>
             }
         </div>
     );

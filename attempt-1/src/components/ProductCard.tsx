@@ -23,7 +23,7 @@ function ProductCard({ product, addToCheckout }: ProductCardProps) {
             <CardContent>
                 <ProductImage src={product.imageUrl} alt={product.name} />
             </CardContent>
-            <CardFooter className="flex w-full justify-end">
+            <CardFooter className="flex w-full justify-between">
                 <Button onClick={() => addToCheckout(product)}>Add to Cart</Button>
                 <Link to={`/product-page/${product.id}`}>
                     <Button variant="link">Show Allergens</Button>
