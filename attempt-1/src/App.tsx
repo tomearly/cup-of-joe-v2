@@ -5,10 +5,12 @@ import Checkout from "./components/Checkout"
 import { type CheckoutItem } from "./types/CheckoutItem"
 import { type Product } from "./types/Product"
 
+import { Routes, Route } from "react-router";
+import ProductPage from "@/pages/product-page";
 import './App.css'
 
 function App() {
- 
+
   const [items, dispatch] = useReducer(checkoutReducer, [] as CheckoutItem[])
 
   const addToCheckout = (product: Product) => {
@@ -16,13 +18,18 @@ function App() {
   }
 
   return (
-    <>
-      <div className="coffee-shop">
+    <div className="coffee-shop">
+      <header>
         <h1 className="text-4xl font-bold">Coffee Shop</h1>
         <Checkout items={items} />
-        <Menu addToCheckout={addToCheckout} />
-      </div>
-    </>
+      </header>
+      <Routes>
+        <Route>
+          <Route path="/" element={<Menu addToCheckout={addToCheckout} />} />
+          <Route path="/product-page/:id" element={<ProductPage />} />
+        </Route>
+      </Routes>
+    </div>
   )
 }
 

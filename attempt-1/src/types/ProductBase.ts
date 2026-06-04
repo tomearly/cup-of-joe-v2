@@ -1,4 +1,5 @@
 import { type ProductCategory } from "./ProductCategory"
+import { type Allergen } from "./Allergens"
 
 export interface ProductBase {
   id: string;
@@ -7,4 +8,5 @@ export interface ProductBase {
   price: number;
   imageUrl: string;
   category: ProductCategory;
+  allergens?: Allergen[];
 }

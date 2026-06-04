@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { ProductIcon } from "../components/ProductIcon";
 import { type DrinkProduct } from "../types/DrinkProduct"
 import { type FoodProduct } from "../types/FoodProduct"
@@ -21,10 +22,12 @@ function ProductCard({ product, addToCheckout }: ProductCardProps) {
             </CardHeader>
             <CardContent>
                 <ProductImage src={product.imageUrl} alt={product.name} />
-                {/* { 'reheatingInstructions' in product && product.reheatingInstructions && <p className="mt-2"><em>{product.reheatingInstructions}</em></p>} */}
             </CardContent>
             <CardFooter className="flex w-full justify-end">
                 <Button onClick={() => addToCheckout(product)}>Add to Cart</Button>
+                <Link to={`/product-page/${product.id}`}>
+                    <Button variant="link">Show Allergens</Button>
+                </Link>
             </CardFooter>
         </Card>
     )

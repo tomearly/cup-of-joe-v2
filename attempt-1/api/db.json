@@ -16,7 +16,8 @@
             "price": 3.5,
             "imageUrl": "https://www.cuisinart.com/dw/image/v2/ABAF_PRD/on/demandware.static/-/Sites-us-cuisinart-sfra-Library/default/dw42dcae51/images/recipe-Images/cafe-latte1-recipe_resized.jpg?sh=300",
             "category": "drink",
-            "hot": true
+            "hot": true,
+            "allergens": [ "milk" ]
         },
         {
             "id": "993d9eff-9f34-4842-b880-e348ea98847a",
@@ -25,7 +26,8 @@
             "price": 3.0,
             "imageUrl": "https://www.cuisinart.com/dw/image/v2/ABAF_PRD/on/demandware.static/-/Sites-us-cuisinart-sfra-Library/default/dw30047d66/images/recipe-Images/cappuccino1-recipe.jpg?sh=300&sm=fit",
             "category": "drink",
-            "hot": true
+            "hot": true,
+            "allergens": [ "milk" ]
         },
         {
             "id": "1f7ed562-e90f-45ba-b3e8-734d85081a29",
@@ -61,7 +63,8 @@
             "price": 6.0,
             "imageUrl": "https://live.staticflickr.com/65535/51355146262_f2a81d9021_h.jpg",
             "category": "food",
-            "reheatingInstructions": "Bake in convection oven on Panino setting for 2 minutes"
+            "reheatingInstructions": "Bake in convection oven on Panino setting for 2 minutes",
+            "allergens": [ "milk", "gluten" ]
         },
         {
             "id": "13eea6db-a0fc-4a55-ab28-24b5df2f4ff2",

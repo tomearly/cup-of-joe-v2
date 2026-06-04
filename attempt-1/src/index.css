@@ -9,6 +9,11 @@
   max-width: 1200px;
 }
 
+.allergen-icon {
+  height: 30px;
+  width: 30px;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
