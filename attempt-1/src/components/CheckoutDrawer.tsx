@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import { Link } from "react-router"
 import {
     Sheet,
@@ -9,51 +9,34 @@ import {
     SheetFooter
 } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
-import { totalCartCost } from "../lib/utils"
-import { type CartItem } from "../types/CartItem"
 
-interface Product {
-    id: string;
-    name: string;
-    price: number;
-}
+import { useCart } from "@/context/cart";
 
-interface CheckoutProps {
-    isOpen: boolean;
-    onClose: () => void;
-    product: Product | null;
-    items: CartItem[]
-}
-
-export function CheckoutDrawer({ isOpen, onClose, product, items }: CheckoutProps) {
+export function CheckoutDrawer() {
     const checkoutBtnRef = useRef<HTMLButtonElement>(null);
-
-    const totalCost = totalCartCost(items);
-
-    useEffect(() => {
-        if (isOpen) {
-            setTimeout(() => checkoutBtnRef.current?.focus(), 100);
-        }
-    }, [isOpen]);
-
-    if (!product) return null;
+    const {
+        cartTotal,
+        cart,
+        checkoutDrawerOpen,
+        activeProduct,
+        closeCheckoutDrawer
+    } = useCart();
 
     return (
-        <Sheet open={isOpen} onOpenChange={onClose}>
+        <Sheet open={checkoutDrawerOpen} onOpenChange={closeCheckoutDrawer}>
             <SheetContent side="right" className="w-[400px] sm:w-[540px] flex flex-col justify-between">
                 <div>
                     <SheetHeader>
                         <SheetTitle>Review Your Order</SheetTitle>
-                        <SheetDescription>
-                            You have added {product.name}
-                        </SheetDescription>
+                        {activeProduct && <SheetDescription>
+                            You have added {activeProduct.name}
+                        </SheetDescription>}
                     </SheetHeader>
-
                     <div className="space-y-4 border-t pt-4">
-                        {items.map(item => (
+                        {cart.map(item => (
                             <div key={item.productId} className="flex justify-between items-center mb-0">
                                 <div>
-                                    <h4 className="px-4 font-medium text-lg">{item.name}</h4>
+                                    <h4 className="px-4 font-medium text-lg">{item.name} * {item.quantity}</h4>
                                 </div>
                                 <p className="font-bold text-lg pr-5">£{item.price.toFixed(2)}</p>
                             </div>
@@ -62,13 +45,13 @@ export function CheckoutDrawer({ isOpen, onClose, product, items }: CheckoutProp
                 </div>
 
                 <SheetFooter className="border-t pt-4 gap-2 w-full justify-end">
-                    <div className="flex justify-end">Total: £{totalCost} {Number(totalCost) > 0 && (<>inc. delivery</>)}</div>
+                    <div className="flex justify-end">Total: £{cartTotal} {Number(cartTotal) > 0 && (<>inc. delivery</>)}</div>
                     <div className="flex gap-2 justify-end">
-                        <Button variant="outline" onClick={onClose} className="w-full sm:w-auto">
+                        <Button variant="outline" onClick={closeCheckoutDrawer} className="w-full sm:w-auto">
                             Keep Browsing
                         </Button>
                         <Link to="/order">
-                            <Button onClick={onClose} ref={checkoutBtnRef} className="w-full sm:w-auto">
+                            <Button onClick={closeCheckoutDrawer} ref={checkoutBtnRef} className="w-full sm:w-auto">
                                 Proceed to Checkout
                             </Button>
                         </Link>

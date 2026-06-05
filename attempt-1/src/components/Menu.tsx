@@ -3,13 +3,9 @@ import { AlertTriangleIcon, Loader } from "lucide-react"
 import { type Product } from '@/types/Product'
 import { useFetch } from '@/hooks/useFetch'
 
-type MenuProps = {
-    addToCheckout: (product: Product) => void
-}
-
 type ApiResponse<T> = { products: T }
 
-export function Menu({ addToCheckout }: MenuProps) {
+export function Menu() {
     const { data, loading, error } = useFetch<ApiResponse<Product[]>>('/api/products')
     const products = data?.products ?? []
 
@@ -25,7 +21,6 @@ export function Menu({ addToCheckout }: MenuProps) {
                     <ProductCard
                         product={product}
                         key={product.id}
-                        addToCheckout={addToCheckout}
                     />
                 ))}
             </div>

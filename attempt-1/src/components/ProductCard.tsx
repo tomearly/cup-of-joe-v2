@@ -5,14 +5,24 @@ import { Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent, 
 import { ProductImage } from "./ProductImage"
 import { type DrinkProduct } from "@/types/DrinkProduct"
 import { type FoodProduct } from "@/types/FoodProduct"
-import { type Product } from "@/types/Product"
+
+import { useCart } from "@/context/cart";
 
 type ProductCardProps = {
-    product: DrinkProduct | FoodProduct,
-    addToCheckout: (product: Product) => void
+    product: DrinkProduct | FoodProduct
 }
 
-export function ProductCard({ product, addToCheckout }: ProductCardProps) {
+export function ProductCard({ product }: ProductCardProps) {
+    
+    const { addToCart } = useCart()
+    
+    const cartItem = {
+        productId: product.id,
+        quantity: 1,
+        price: product.price,
+        name: product.name
+    }
+
     return (
         <Card>
             <CardHeader>
@@ -24,7 +34,7 @@ export function ProductCard({ product, addToCheckout }: ProductCardProps) {
                 <ProductImage src={product.imageUrl} alt={product.name} />
             </CardContent>
             <CardFooter className="flex w-full justify-between">
-                <Button onClick={() => addToCheckout(product)}>Add to Cart</Button>
+                <Button onClick={() => addToCart(cartItem)}>Add to Cart</Button>
                 <Link to={`/product-page/${product.id}`}>
                     <Button variant="link">Show Allergens</Button>
                 </Link>
