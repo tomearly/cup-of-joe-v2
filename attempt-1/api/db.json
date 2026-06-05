@@ -60,7 +60,7 @@
         },
         {
             "id": "f344ef3e-84f1-4a5c-ad54-f1d57117f721",
-            "name": "Mozzarella and Sundried Tomato Panino",
+            "name": "Mozzarella and Tomato Panino",
             "description": "An authentic style Italian Panino with buffalo mozzarella, sundried tomatoes and olive oil",
             "price": 6.0,
             "imageUrl": "https://live.staticflickr.com/65535/51355146262_f2a81d9021_h.jpg",
@@ -75,7 +75,7 @@
             "price": 4.0,
             "imageUrl": "https://i.guim.co.uk/img/media/3e58389a66a0b29a78223d30a4f5f0e960254ffa/0_78_5269_3160/master/5269.jpg?width=1200&quality=85&auto=format&fit=max&s=90e770f507e4cd72e0faf18850eb89fc",
             "category": "food",
-            "allergens": [ "egg", "gluten", "mustard", "sesame" ]
+            "allergens": [ "egg", "gluten", "mustard", "sesame", "milk" ]
         }
     ]
 }
