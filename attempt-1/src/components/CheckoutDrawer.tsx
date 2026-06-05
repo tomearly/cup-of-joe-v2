@@ -47,9 +47,11 @@ export function CheckoutDrawer() {
                 <SheetFooter className="border-t pt-4 gap-2 w-full justify-end">
                     <div className="flex justify-end">Total: £{cartTotal} {Number(cartTotal) > 0 && (<>inc. delivery</>)}</div>
                     <div className="flex gap-2 justify-end">
-                        <Button variant="outline" onClick={closeCheckoutDrawer} className="w-full sm:w-auto">
-                            Keep Browsing
-                        </Button>
+                        <Link to="#">
+                            <Button variant="outline" onClick={closeCheckoutDrawer} className="w-full sm:w-auto">
+                                Keep Browsing
+                            </Button>
+                        </Link>
                         <Link to="/order">
                             <Button onClick={closeCheckoutDrawer} ref={checkoutBtnRef} className="w-full sm:w-auto">
                                 Proceed to Checkout
