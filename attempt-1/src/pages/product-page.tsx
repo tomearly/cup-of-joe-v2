@@ -7,8 +7,10 @@ import { ALLERGEN_IMAGES } from "@/types/Allergens"
 import { type Product } from "@/types/Product"
 
 export function ProductPage() {
-    const { id } = useParams()
-    const { data, loading, error } = useFetch<Product>(id ? `/api/products/${id}` : "")
+    const params = useParams()
+    const id = params.id
+    const { data, loading, error } = useFetch<Product>(id ? `/api/products/${id}` : "");
+
     const allergens = data?.allergens || []
 
     const allergenIcons = allergens.map((allergen) => (
@@ -21,12 +23,12 @@ export function ProductPage() {
     ));
 
     return (
-        <div className="mt-8 max-w-2xl mx-auto">
+        <div className="mt-4 mb-8 mx-auto">
+            <h1 className="text-3xl font-bold mt-4 mb-8">Product Details & Allergens</h1>
+
             <Link to="/" className="mb-8 flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
                 <ArrowLeft className="w-4 h-4" /> Menu
             </Link>
-            
-            <h1 className="text-3xl font-bold mt-4 mb-8">Product Details & Allergens</h1>
 
             {loading && (
                 <div className="flex items-center gap-2 text-muted-foreground">
