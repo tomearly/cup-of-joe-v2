@@ -18,6 +18,9 @@ export default defineConfig({
       { find: '@', replacement: path.resolve(__dirname, 'src') }
     ]
   },
+  optimizeDeps: {
+    include: ["tslib"],
+  },
   build: {
     rolldownOptions: {
       external: ['tslib']
