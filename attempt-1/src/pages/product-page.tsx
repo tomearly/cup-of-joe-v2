@@ -9,7 +9,6 @@ import { ALLERGEN_IMAGES } from "@/types/Allergens"
 
 export function ProductPage() {
     const { id } = useParams<{ id: string }>();
-
     const { data, loading, error } = useFetch<Product>(`/api/products/${id}`);
 
     const allergens = data?.allergens || [];
@@ -23,7 +22,7 @@ export function ProductPage() {
             <Link to="/" className="mb-8 flex">
                 <ArrowLeft></ArrowLeft>Menu
             </Link>
-            {loading && <Loader />}
+            {loading && <Loader className="animate-spin" />}
             {error && <AlertTriangleIcon />}
             {data &&
                 <Card>

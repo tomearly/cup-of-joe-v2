@@ -17,7 +17,7 @@ export function Menu({ addToCheckout }: MenuProps) {
         <>
             <h1 className="text-3xl font-bold mt-4 mb-8">Menu</h1>
 
-            { loading && <Loader />}
+            { loading && <Loader className="animate-spin" />}
             { error && <AlertTriangleIcon />}
 
             <div className="drinks-menu">

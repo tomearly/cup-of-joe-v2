@@ -2,9 +2,10 @@ import { useReducer, useState } from "react";
 import { Routes, Route } from "react-router";
 import { checkoutReducer } from "@/reducers/checkoutReducer"
 import { ProductPage } from "@/pages/product-page";
+import { OrderForm } from "@/pages/order-form";
 import { Menu } from "@/components/Menu"
 import { Cart } from "@/components/Cart"
-import { Checkout } from '@/components/Checkout'
+import { CheckoutDrawer } from '@/components/CheckoutDrawer'
 import { type CartItem } from "@/types/CartItem"
 import { type Product } from "@/types/Product"
 
@@ -28,9 +29,10 @@ function App() {
         <Route>
           <Route path="/" element={<Menu addToCheckout={addToCheckout} />} />
           <Route path="/product-page/:id" element={<ProductPage />} />
+          <Route path="/order" element={<OrderForm />} />
         </Route>
       </Routes>
-      <Checkout
+      <CheckoutDrawer
         isOpen={activeProduct !== null}
         onClose={() => setActiveProduct(null)}
         product={activeProduct}

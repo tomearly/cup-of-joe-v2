@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react"
+import { Link } from "react-router"
 import {
     Sheet,
     SheetContent,
@@ -24,7 +25,7 @@ interface CheckoutProps {
     items: CartItem[]
 }
 
-export function Checkout({ isOpen, onClose, product, items }: CheckoutProps) {
+export function CheckoutDrawer({ isOpen, onClose, product, items }: CheckoutProps) {
     const checkoutBtnRef = useRef<HTMLButtonElement>(null);
 
     const totalCost = totalCartCost(items);
@@ -50,7 +51,7 @@ export function Checkout({ isOpen, onClose, product, items }: CheckoutProps) {
 
                     <div className="space-y-4 border-t pt-4">
                         {items.map(item => (
-                            <div className="flex justify-between items-center mb-0">
+                            <div key={item.productId} className="flex justify-between items-center mb-0">
                                 <div>
                                     <h4 className="px-4 font-medium text-lg">{item.name}</h4>
                                 </div>
@@ -66,9 +67,11 @@ export function Checkout({ isOpen, onClose, product, items }: CheckoutProps) {
                         <Button variant="outline" onClick={onClose} className="w-full sm:w-auto">
                             Keep Browsing
                         </Button>
-                        <Button ref={checkoutBtnRef} className="w-full sm:w-auto">
-                            Proceed to Checkout
-                        </Button>
+                        <Link to="/order">
+                            <Button onClick={onClose} ref={checkoutBtnRef} className="w-full sm:w-auto">
+                                Proceed to Checkout
+                            </Button>
+                        </Link>
                     </div>
                 </SheetFooter>
             </SheetContent>
