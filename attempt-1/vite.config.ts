@@ -23,7 +23,7 @@ export default defineConfig({
   },
   build: {
     rolldownOptions: {
-      external: ['tslib']
+      external: []
     }
   },
   plugins: [
