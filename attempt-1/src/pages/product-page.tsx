@@ -22,6 +22,8 @@ export function ProductPage() {
             <Link to="/" className="mb-8 flex">
                 <ArrowLeft></ArrowLeft>Menu
             </Link>
+            <h1 className="text-3xl font-bold mt-4 mb-8">Product Allergens</h1>
+
             {loading && <Loader className="animate-spin" />}
             {error && <AlertTriangleIcon />}
             {data &&
