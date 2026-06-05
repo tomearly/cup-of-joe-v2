@@ -28,7 +28,7 @@ export async function simulateOrderAction(
 
     return {
         success: true,
-        message: `Order received for: ${prevState?.customerName}. Phone Number: ${prevState?.customerPhoneNumber}`,
+        message: `Order received for: ${customerName}. Phone Number: ${customerPhoneNumber}`,
         orderId: `CAFE-${Math.floor(1000 + Math.random() * 9000)}`,
         customerPhoneNumber,
         customerName,

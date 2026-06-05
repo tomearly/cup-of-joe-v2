@@ -1,7 +1,7 @@
 // src/pages/product-page.tsx
-import { AlertTriangleIcon, ArrowLeft, Loader } from "lucide-react";
-import { Link, useParams } from "react-router";
-import { type Product } from "../types/Product";
+import { AlertTriangleIcon, ArrowLeft, Loader } from "lucide-react"
+import { Link, useParams } from "react-router"
+import { type Product } from "../types/Product"
 import { useFetch } from "../hooks/useFetch"
 import { Card, CardHeader, CardTitle, CardDescription, CardAction, CardContent } from "@/components/ui/card"
 import { ProductImage } from "@/components/ProductImage"
@@ -9,9 +9,9 @@ import { ALLERGEN_IMAGES } from "@/types/Allergens"
 
 export function ProductPage() {
     const { id } = useParams<{ id: string }>();
-    const { data, loading, error } = useFetch<Product>(`/api/products/${id}`);
+    const { data, loading, error } = useFetch<Product>(`/api/products/${id}`)
 
-    const allergens = data?.allergens || [];
+    const allergens = data?.allergens || []
 
     const allergenIcons = allergens.map((allergen) =>
         <img alt={allergen} key={allergen} className="allergen-icon" src={ALLERGEN_IMAGES[allergen]} />

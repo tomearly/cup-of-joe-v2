@@ -1,21 +1,38 @@
-import { useActionState } from "react";
-import { simulateOrderAction } from "@/actions/order-action";
-import { type OrderFormState } from "@/interfaces/OrderFormState";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Loader, CheckCircle2, AlertCircle } from "lucide-react";
+import { useActionState, useEffect } from "react"
+import { useNavigate } from "react-router"
+import { simulateOrderAction } from "@/actions/order-action"
+import { type OrderFormState } from "@/interfaces/OrderFormState"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Loader, CheckCircle2, AlertCircle } from "lucide-react"
+import { useCart } from "@/context/cart"
 
 const initialState: OrderFormState = {
   success: false,
   message: "",
   customerName: "",
   customerPhoneNumber: "",
-};
+}
 
 export function OrderForm() {
-  const [state, formAction, isPending] = useActionState(simulateOrderAction, initialState);
+  const [state, formAction, isPending] = useActionState(simulateOrderAction, initialState)
+
+  const { clearCart } = useCart()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (state.success) {
+      clearCart()
+
+      const timer = setTimeout(() => {
+        navigate("/")
+      }, 3000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [state.success, clearCart, navigate])
 
   return (
     <div className="max-w-md mx-auto p-6 border rounded-xl shadow-sm bg-card space-y-6">
@@ -76,6 +93,7 @@ export function OrderForm() {
           </AlertTitle>
           <AlertDescription className={state.success ? "text-emerald-700" : ""}>
             {state.message}
+            {state.success && <p>You will be directed home shortly</p>}
           </AlertDescription>
         </Alert>
       )}
