@@ -26,6 +26,17 @@ export async function simulateOrderAction(
         }
     }
 
+    // Validate phone number format (simple regex for demonstration)
+    const phoneRegex = /^\+?\d{10,15}$/; // Accepts optional '+' and 10 to 15 digits
+    if (!phoneRegex.test(customerPhoneNumber)) {
+        return {
+            success: false,
+            message: "Please enter a valid phone number (10-15 digits, optional '+')!",
+            customerPhoneNumber: "",
+            customerName
+        }
+    }
+
     return {
         success: true,
         message: `Order received for: ${customerName}. Phone Number: ${customerPhoneNumber}`,
