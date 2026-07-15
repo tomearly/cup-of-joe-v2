@@ -22,6 +22,11 @@ export function OrderForm() {
   const { clearCart } = useCart()
   const navigate = useNavigate()
 
+    const {
+        cart,
+        cartTotal,
+    } = useCart();
+
   useEffect(() => {
     if (state.success) {
       clearCart()
@@ -41,7 +46,20 @@ export function OrderForm() {
       </div>
 
       <form action={formAction} className="space-y-4">
-        <div className="space-y-1.5">
+
+          <div className="space-y-4 border-t pt-4">
+              {cart.map(item => (
+                  <div key={item.productId} className="flex justify-between items-center mb-0">
+                      <div>
+                          <h4 className="px-4 font-medium text-lg">{item.name} * {item.quantity}</h4>
+                      </div>
+                      <p className="font-bold text-lg pr-5">£{item.price.toFixed(2)}</p>
+                  </div>
+              ))}
+          </div>
+          <div className="flex justify-end">Total: £{cartTotal} {Number(cartTotal) > 0 && (<>inc. delivery</>)}</div>
+
+          <div className="space-y-1.5">
           <Label htmlFor="customerName">Customer Name</Label>
           <Input 
             id="customerName" 
@@ -49,7 +67,6 @@ export function OrderForm() {
             placeholder="e.g., Alex" 
             disabled={isPending}
             defaultValue={state.customerName}
-            onChange={(e) => state.customerName = e.target.value}
           />
         </div>
 
@@ -61,7 +78,6 @@ export function OrderForm() {
             placeholder="e.g. 07000 123456"
             disabled={isPending}
             defaultValue={state.customerPhoneNumber}
-            onChange={(e) => state.customerPhoneNumber = e.target.value}
           />
         </div>
 
