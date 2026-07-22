@@ -16,6 +16,14 @@ const initialState: OrderFormState = {
   customerPhoneNumber: "",
 }
 
+const postOrder = (orderData) => fetch('http://localhost:8080/webhook/orders', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(orderData),
+})
+
 export function OrderForm() {
   const [state, formAction, isPending] = useActionState(simulateOrderAction, initialState)
 
@@ -29,7 +37,9 @@ export function OrderForm() {
 
   useEffect(() => {
     if (state.success) {
-      clearCart()
+        postOrder(cart);
+        console.log(cart)
+        clearCart()
 
       const timer = setTimeout(() => {
         navigate("/")
