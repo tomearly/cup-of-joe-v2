@@ -38,7 +38,6 @@ export function OrderForm() {
   useEffect(() => {
     if (state.success) {
         postOrder({...cart, ...state});
-        console.log(cart)
         clearCart()
 
       const timer = setTimeout(() => {
