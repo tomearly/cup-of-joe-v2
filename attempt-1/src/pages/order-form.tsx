@@ -21,7 +21,7 @@ const postOrder = (orderData) => fetch('http://localhost:8080/webhook/orders', {
     headers: {
         'Content-Type': 'application/json',
     },
-    body: JSON.stringify(orderData),
+    body: JSON.stringify(orderData)
 })
 
 export function OrderForm() {
@@ -37,7 +37,7 @@ export function OrderForm() {
 
   useEffect(() => {
     if (state.success) {
-        postOrder(cart);
+        postOrder({...cart, ...state});
         console.log(cart)
         clearCart()
 
