@@ -1,4 +1,4 @@
-# Cup of Joe (v2 - Attempt 1)
+# Cup of Joe
 
 > An online coffee shop
 
